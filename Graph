@@ -1,0 +1,33 @@
+class Graph:
+    def __init__(self):
+        self.graph = {}
+
+    def add_vertex(self, vertex):
+        if vertex not in self.graph:
+            self.graph[vertex] = []
+        else:
+            print(f"Vertex {vertex} already exists.")
+
+    def add_edge(self, vertex1, vertex2):
+        if vertex1 not in self.graph:
+            print(f"Vertex {vertex1} not found. Please add it first.")
+            return
+        if vertex2 not in self.graph:
+            print(f"Vertex {vertex2} not found. Please add it first.")
+            return
+        
+        self.graph[vertex1].append(vertex2)
+        self.graph[vertex2].append(vertex1)
+
+    def display(self):
+        for vertex in self.graph:
+            print(f"{vertex}: {self.graph[vertex]}")
+
+    def has_edge(self, vertex1, vertex2):
+        return vertex2 in self.graph.get(vertex1, [])
+
+    def get_vertices(self):
+        return list(self.graph.keys())
+
+    def get_neighbors(self, vertex):
+        return self.graph.get(vertex, [])

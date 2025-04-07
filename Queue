@@ -1,0 +1,78 @@
+class Node:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+        
+
+class Queue:
+    def __init__(self):
+        self.head = None
+
+    def enqueue(self, data):
+        newNode = Node(data)
+
+        if self.head is None:
+            self.head = newNode
+        else:
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = newNode
+
+            print()
+
+    def dequeue(self):
+        if self.head is None:
+            print("The queue is empty, populate it first!")
+        else:
+            dequeuedIndex = self.head
+            self.head = self.head.next
+            print("You dequeued " + str(dequeuedIndex) + " from the list.")
+
+        print()
+
+
+    def showQueue(self):
+        cnode = self.head
+        count = 0
+        print("Start of Queue")
+        while cnode:
+            print(str(count) + ": " + cnode.data)
+            cnode = cnode.next
+            count = count + 1
+        print("End of Queue")
+        print()
+
+
+    def main(self):
+        value = input("Enter a value to start the queue:")
+        self.enqueue(value)
+
+        while True:
+            try:
+                userchoice = int(input("--------Menu--------\n"
+                                       "1) Enqueue\n"
+                                       "2) Dequeue\n"
+                                       "3) View the Queue\n"
+                                       "4) Exit\n"))
+            except ValueError:
+                print("Invalid input. Please enter a number corresponding to the menu options.")
+                continue
+            if userchoice == 1:
+                value = input("What would you like to enqueue into the stack? ")                          
+                self.enqueue(value)    
+
+            elif userchoice == 2:
+                self.dequeue()
+
+            elif userchoice == 3:
+                self.showQueue()  
+                
+            elif userchoice == 4:
+                print("Exiting the program, Goodbye!")
+                break
+            
+            else:
+                print("Please input a valid menu item")
+
+Queue().main()

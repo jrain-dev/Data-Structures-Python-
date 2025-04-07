@@ -1,0 +1,70 @@
+class Node:
+    def __init__(self, data=None):
+        self.data = data
+        self.next = None
+        
+
+class Stack:
+    def __init__(self):
+        self.head = None
+
+    def push(self, data):
+        newNode = Node(data)
+
+        newNode.next = self.head
+        self.head = newNode
+        print()
+
+    def pop(self, N):
+        if self.head is None:
+            print("The stack is empty, populate it before you go deleting things!")
+        else:
+            popedNode = self.head.data
+            self.head = self.head.next
+            print("You popped " + str(N) + " from the list.")
+        print()
+
+    def showStack(self):
+        cnode = self.head
+        count = 0
+        print("Start of List")
+        while cnode:
+            print(str(count) + ": " + cnode.data)
+            cnode = cnode.next
+            count = count + 1
+        print("End of List")
+        print()
+
+    def main(self):
+        value = input("Enter a value to start the list:")
+        self.push(value)
+
+        while True:
+            try:
+                userchoice = int(input("--------Menu--------\n"
+                                       "1) Push Into Stack\n"
+                                       "2) Pop From Stack\n"
+                                       "3) View the Stack\n"
+                                       "4) Exit\n"))
+            except ValueError:
+                print("Invalid input. Please enter a number corresponding to the menu options.")
+                continue
+            if userchoice == 1:
+                value = input("What would you like to push into the stack? ")                          
+                self.push(value)    
+
+            elif userchoice == 2:
+                value = input("What would you like to pop from the stack? ")
+                self.pop(value)
+
+            elif userchoice == 3:
+                self.showList()  
+                
+            elif userchoice == 4:
+                print("Exiting the program, Goodbye!")
+                break
+            
+            else:
+                print("Please input a valid menu item")
+
+Stack().main()

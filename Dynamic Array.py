@@ -114,3 +114,5 @@ class DynamicArray:
 
     if __name__ == "__main__":
         main('self')
+
+#Main function is not currently working correctly. Bugs are located in the getSize calls within the main method.

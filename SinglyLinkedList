@@ -1,0 +1,54 @@
+class LinkedList:
+    
+    def __init__(self):
+        self.head = None
+        len = 0
+        LinkedList = []
+    
+    def get(self, index: int) -> int:
+        return LinkedList[i]
+
+    def insertHead(self, val: int) -> None:
+        listSize = LinkedList[].len()
+        if listSize == 0:
+            LinkedList.append(val)
+        else:
+            for i in LinkedList:
+                listSize
+
+    def insertTail(self, val: int) -> None:
+        newNode = Node(data)
+
+        if self.head == None:
+            self.head = newNode
+        else:
+            lastNode = self.head
+            while lastNode.next:
+                lastNode = lastNode.next
+            lastNode.next = newNode
+
+        cNode = self.head
+        len = 0
+
+        while cNode is not None and len < N-1:
+            cNode = cNode.next
+            len += 1
+
+        newNode.next = cNode.next
+        cNode.next = newNode
+
+    def remove(self, index: int) -> bool:
+        cNode = self.head
+        pNode = None
+
+        while cNode and cNode.data != N:
+            pNode = cNode
+            cNode = cNode.next
+
+    def getValues(self) -> List[int]:
+        cnode = self.head
+        count = 0
+        while cnode:
+            print(str(count) + ": " + cnode.data)
+            cnode = cnode.next
+            count = count + 1
